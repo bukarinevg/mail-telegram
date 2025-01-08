@@ -21,4 +21,27 @@
     <button id="main-action-button">Основное действие</button>
   </div>
 </body>
-</html>
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const tg = window.Telegram.WebApp;
+
+    // Access the user's ID from initDataUnsafe
+    const userId = tg.initDataUnsafe?.user?.id;
+
+    if (userId) {
+      // Create a new element dynamically
+      const userIdElement = document.createElement("div");
+      userIdElement.textContent = `Welcome, User ID: ${userId}`;
+      userIdElement.style.padding = "10px";
+      userIdElement.style.backgroundColor = "#a4f3f2";
+      userIdElement.style.border = "1px solid #ccc";
+      userIdElement.style.marginTop = "20px";
+      userIdElement.style.fontFamily = "Arial, sans-serif";
+
+      // Append the element to the body or a specific container
+      document.body.appendChild(userIdElement);
+    } else {
+      console.log("Unable to retrieve User ID");
+    }
+  });
+</script></html>
